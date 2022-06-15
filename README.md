@@ -19,6 +19,6 @@ It can be used to take pictures, record text notes, provide theme flexibility an
 Used for taking pictures and getting pictures from the database.
 - [cordova-plugin-save-image](https://www.npmjs.com/package/cordova-plugin-save-image): Used to save images to your gallery
 - [Cordova-Plugin-Local-Notification](https://github.com/katzer/cordova-plugin-local-notifications): Used to send notifications to the device user
-- [Sqlite](https://github.com/storesafe/cordova-sqlite-storage):Used to save text data to the phone's database
+- [Sqlite](https://github.com/storesafe/cordova-sqlite-storage): Used to save text data to the phone's database
 - [Cordova-Plugin-Printer](https://github.com/katzer/cordova-plugin-printer): Used to print quotes from database
-- [cordova-plugin-network-information](https://cordova.apache.org/docs/en/11.x/reference/cordova-plugin-network-information/):Used to make sure the device has an active internet connection
+- [cordova-plugin-network-information](https://cordova.apache.org/docs/en/11.x/reference/cordova-plugin-network-information/): Used to make sure the device has an active internet connection
