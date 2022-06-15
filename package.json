@@ -15,8 +15,8 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-android": "^9.1.0",
-    "cordova-browser": "^6.0.0",
+    "cordova-android": "~7.1.1",
+    "cordova-browser": "~5.0.1",
     "cordova-ios": "^6.2.0",
     "cordova-plugin-alarmclock": "github:m0dch3n/cordova-plugin-wakeuptimer",
     "cordova-plugin-badge": "^0.8.8",

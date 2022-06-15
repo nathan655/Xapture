@@ -2,7 +2,7 @@ let Camera = function () {
     function cameraTakePicture() {
 
         function onSuccess(imageData) {
-            $('#myImage').attr('src',"data:image/jpeg;base64," + imageData);
+            $('#myImage').attr('src', "data:image/jpeg;base64," + imageData);
             //console.log(image.src);
             $('.save-picture').show();
         }
@@ -10,12 +10,14 @@ let Camera = function () {
         function onFail(message) {
             alert('Failed because: ' + message);
         }
+
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 50,
-            destinationType: Camera.DestinationType.DATA_URL
+            // destinationType: Camera.DestinationType.FILE_URI
         });
     }
-    function cameraSavePicture(){
+
+    function cameraSavePicture() {
         let image = $('#myImage').attr('src');
         window.cordova.plugins.imagesaver.saveImageToGallery(image, onSaveImageSuccess, onSaveImageError);
 
@@ -31,7 +33,7 @@ let Camera = function () {
     function cameraGetPicture() {
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 70,
-            destinationType: Camera.DestinationType.DATA_URL,
+            destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });
 
@@ -45,9 +47,9 @@ let Camera = function () {
 
     }
 
-    return{
-        takePicture:cameraTakePicture,
-        getPicture:cameraGetPicture,
-        savePicture:cameraSavePicture,
+    return {
+        takePicture: cameraTakePicture,
+        getPicture: cameraGetPicture,
+        savePicture: cameraSavePicture,
     }
 }();
