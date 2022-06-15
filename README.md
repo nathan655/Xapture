@@ -4,7 +4,7 @@
 - Class: 2ACS
 - Email: r0855536@student.thomasmore.be
 - Student Number: r0855536
-- APK Download: https://xapture.sinners.be/assets/apk/xapture.apk
+- APK Download: https://xapture.sinners.be/
 
 ![IMG_4172](https://user-images.githubusercontent.com/71727133/173915542-6f1346d1-d168-47d7-8187-062bd13b33b4.jpg)
 
