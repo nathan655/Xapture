@@ -1,7 +1,9 @@
 let Camera = function () {
     function cameraTakePicture() {
+        // alert("why the hell not")
 
         function onSuccess(imageData) {
+            // alert("wtf")
             $('#myImage').attr('src', "data:image/jpeg;base64," + imageData);
             //console.log(image.src);
             $('.save-picture').show();
@@ -12,6 +14,7 @@ let Camera = function () {
         }
 
         navigator.camera.getPicture(onSuccess, onFail, {
+
             quality: 50,
             // destinationType: Camera.DestinationType.FILE_URI
         });

@@ -26,7 +26,7 @@ $(function () {
         } else {
             $('#tabNoteInternet').hide();
         }
-    }, 5000);
+    }, 100);
 
     $('.sidenav').sidenav();	/* https://materializecss.com/sidenav.html */
 
@@ -45,13 +45,13 @@ function onDeviceReady() {
     $('.modal').modal();
     $('.materialboxed').materialbox();
     // Camera
-    $('#cameraTakePicture').on('click', function () {
+    $('#cameraTakePicture').click(function () {
         Camera.takePicture();
     })
-    $('#cameraGetPicture').on('click', function () {
+    $('#cameraGetPicture').click(function () {
         Camera.getPicture();
     })
-    $('.save-picture').on('click', function () {
+    $('.save-picture').click(function () {
         Camera.savePicture();
     })
     // Database
@@ -75,13 +75,13 @@ function onDeviceReady() {
 
     // Theme
     if (localStorage.getItem("theme")) {
-        Theme.changeTheme();
+
         $('#theme').on('click', function () {
             Theme.checkTheme();
             Theme.changeTheme();
         })
     } else {
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem('theme', 'dark');
         // $('#theme')[0].checked( true);
     }
 }

@@ -43,6 +43,7 @@ let Theme = (function () {
             light();
         }
     }
+    dark()
 
 
     return {

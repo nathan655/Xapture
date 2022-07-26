@@ -80,26 +80,14 @@ const Sqlite = function () {
             }
         });
         if (runiOS) {
-            DB = window.sqlitePlugin.openDatabase({name: 'my.db', location: 'default'}, function (db) {
-            }, function (error) {
-                //console.log('Open database ERROR: ' + JSON.stringify(error));
-            });
-            DB.transaction(function (tx) {
-                tx.executeSql('CREATE TABLE IF NOT EXISTS DemoTable (id INTEGER PRIMARY KEY AUTOINCREMENT,head TEXT, content TEXT, colour varchar)');
-            }, function (error) {
-                //console.log('Transaction ERROR: ' + error.message);
-            }, function () {
-                //console.log('Populated database OK');
-            });
-            //console.log('DB: SQLite');
-        } else {
+
             DB = window.openDatabase('my', "0.1", "My list", 200000);
             //console.log('DB: WebSQL');
             DB.transaction(function (tx) {
                 tx.executeSql('CREATE TABLE IF NOT EXISTS DemoTable (id INTEGER PRIMARY KEY AUTOINCREMENT,head TEXT, content TEXT, colour varchar)');
                 tx.executeSql('SELECT * FROM DemoTable', [], querySuccess, errorCB);
             }, function (error) {
-                //console.log('Transaction ERROR: ' + error.message);
+                alert('Transaction ERROR: ' + error.message);
             }, function () {
                 //console.log('Populated database OK');
             });
@@ -110,6 +98,7 @@ const Sqlite = function () {
 
     function errorCB(err) {
         alert("Error processing SQL: " + err.code);
+
     }
 
     let querySuccess = function (tx, result) {
@@ -128,6 +117,7 @@ const Sqlite = function () {
             $('#folderData').empty();
         } else {
             $.each(caseTableResult, function (id, data) {
+                // alert(data.id)
                 let color = data.colour
                 //console.log(data)
                 if (color === '') {
@@ -197,8 +187,8 @@ const Sqlite = function () {
         }
 
     }
-    let intId = function(int){
-         id =int;
+    let intId = function (int) {
+        id = int;
     }
 
     function updateQuery(tx) {
@@ -249,9 +239,10 @@ const Sqlite = function () {
 
             DB.transaction(function (tx) {
                 tx.executeSql('INSERT INTO DemoTable(head, content, colour) VALUES (?,?,?)', [title, content, colour]);
+                // alert(title,content,colour);
                 tx.executeSql('SELECT * FROM DemoTable', [], querySuccess, errorCB);
             }, function (error) {
-                //console.log('Transaction ERROR: ' + error.message);
+                alert('Transaction ERROR: ' + error.message);
             }, function () {
                 //console.log('Populated database OK');
             });
@@ -289,6 +280,6 @@ const Sqlite = function () {
         edit: editNote,
         save: saveNote,
         saveEdit: saveEdit,
-        id:intId,
+        id: intId,
     }
 }();
