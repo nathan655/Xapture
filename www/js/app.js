@@ -46,13 +46,13 @@ function onDeviceReady() {
     $('.materialboxed').materialbox();
     // Camera
     $('#cameraTakePicture').click(function () {
-        Camera.takePicture();
+        Cameras.takePicture();
     })
     $('#cameraGetPicture').click(function () {
-        Camera.getPicture();
+        Cameras.getPicture();
     })
     $('.save-picture').click(function () {
-        Camera.savePicture();
+        Cameras.savePicture();
     })
     // Database
     Sqlite.initDatabase();

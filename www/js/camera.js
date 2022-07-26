@@ -1,10 +1,8 @@
-let Camera = function () {
+let Cameras = function () {
     function cameraTakePicture() {
-        // alert("why the hell not")
 
         function onSuccess(imageData) {
-            // alert("wtf")
-            $('#myImage').attr('src', "data:image/jpeg;base64," + imageData);
+            $('#myImage').attr('src', "data:image/jpeg;base64," + imageData).css("width","100%");
             //console.log(image.src);
             $('.save-picture').show();
         }
@@ -16,7 +14,11 @@ let Camera = function () {
         navigator.camera.getPicture(onSuccess, onFail, {
 
             quality: 50,
-            // destinationType: Camera.DestinationType.FILE_URI
+            destinationType: Camera.DestinationType.DATA_URL,
+            saveToPhotoAlbum: false,
+            encodingType: Camera.EncodingType.JPEG,
+            mediaType: Camera.MediaType.PICTURE,
+            correctOrientation: true
         });
     }
 
@@ -34,14 +36,18 @@ let Camera = function () {
     }
 
     function cameraGetPicture() {
+        console.log(Camera.DestinationType)
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 70,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+            mediaType: Camera.MediaType.ALLMEDIA,
+
         });
 
         function onSuccess(imageURL) {
-            $('#myImage').attr('src', imageURL);
+            $('#myImage').attr('src', "data:image/jpeg;base64," + imageURL).css("width","100%");
+
         }
 
         function onFail(message) {
