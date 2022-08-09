@@ -79,19 +79,18 @@ const Sqlite = function () {
                 document.addEventListener("deviceready", resolve, false);
             }
         });
-        if (runiOS) {
 
-            DB = window.openDatabase('my', "0.1", "My list", 200000);
-            //console.log('DB: WebSQL');
-            DB.transaction(function (tx) {
-                tx.executeSql('CREATE TABLE IF NOT EXISTS DemoTable (id INTEGER PRIMARY KEY AUTOINCREMENT,head TEXT, content TEXT, colour varchar)');
-                tx.executeSql('SELECT * FROM DemoTable', [], querySuccess, errorCB);
-            }, function (error) {
-                alert('Transaction ERROR: ' + error.message);
-            }, function () {
-                //console.log('Populated database OK');
-            });
-        }
+
+        DB = window.openDatabase('my', "0.1", "My list", 200000);
+        //console.log('DB: WebSQL');
+        DB.transaction(function (tx) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS DemoTable (id INTEGER PRIMARY KEY AUTOINCREMENT,head TEXT, content TEXT, colour varchar)');
+            tx.executeSql('SELECT * FROM DemoTable', [], querySuccess, errorCB);
+        }, function (error) {
+            alert('Transaction ERROR: ' + error.message);
+        }, function () {
+            //console.log('Populated database OK');
+        });
 
 
     }

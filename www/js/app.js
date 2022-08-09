@@ -12,6 +12,7 @@ $(function () {
     $('.contact-form').hide();
     $('.confirm-comp').hide();
     $('.w4rAnimated_checkmark').hide();
+
     //console.log($('.wifi'))
     setInterval(() => {
         if (navigator.connection.type === 'none') {
@@ -41,6 +42,7 @@ $(function () {
 });
 
 function onDeviceReady() {
+    console.log(navigator.camera)
     //console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     $('.modal').modal();
     $('.materialboxed').materialbox();

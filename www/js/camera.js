@@ -36,7 +36,7 @@ let Cameras = function () {
     }
 
     function cameraGetPicture() {
-        console.log(Camera.DestinationType)
+        console.log(navigator)
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 70,
             destinationType: Camera.DestinationType.DATA_URL,
